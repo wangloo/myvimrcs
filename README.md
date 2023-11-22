@@ -5,7 +5,7 @@ My vim dotfiles
 usage:
 ```sh
 cd ~/.vim
-git clone https://github.com/wangloo/myvimrcs.git
+git clone git@github.com:wangloo/myvimrcs.git
 cd ~/myvimrcs
 bash ./install_vimrc.sh
 ```
