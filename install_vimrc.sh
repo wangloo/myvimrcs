@@ -1,6 +1,6 @@
 #/bin/bash
 
-sys_vimrc="$HOME/.vim/myvimrcs/vv"
+sys_vimrc="$HOME/.vimrc"
 ori_vimrc="$HOME/.vim/myvimrcs/.vimrc"
 if [ -e "$sys_vimrc" ]; then
   echo "Error: $sys_vimrc already exist, exit!"
