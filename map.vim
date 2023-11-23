@@ -12,6 +12,8 @@ vnoremap <leader>d "_d
 
 
 
+" Weired!! <C-_> ==> <C-/>
+map <C-_> <plug>NERDCommenterToggle
 
 
 

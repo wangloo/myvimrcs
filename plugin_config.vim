@@ -30,8 +30,18 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 
 " (2) airline
-
+"     -------
 " Enable the list of buffers
 " Show just the filename
 let g:airline#extensions#tabline#enabled = 1     
 let g:airline#extensions#tabline#fnamemod = ':t' 
+
+
+" (3) nerdcommenter
+"     =============
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '//' , 'right': ''}}
