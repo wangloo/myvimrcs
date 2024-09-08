@@ -47,3 +47,14 @@ let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 " Add your own custom formats or override the defaults
 let g:NERDCustomDelimiters = { 'c': { 'left': '//' , 'right': ''}}
+
+" (4) LeaderF
+"     =======
+" Don't show preview window in 'file' mode
+let g:Lf_PreviewResult = { 'File': 0 }
+" let g:Lf_MaxCount = 1000
+let g:Lf_RootMarkers = ['.git', '.svn', '.hg', '.project', '.root']
+let g:Lf_DefaultExternalTool='rg'
+let g:Lf_WindowHeight = 0.3
+let g:Lf_WindowPosition = 'bottom'
+

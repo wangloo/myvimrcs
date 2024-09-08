@@ -21,6 +21,7 @@ set foldcolumn=0  " 设置折叠区域的宽度
 setlocal foldlevel=1 " 设置折叠层数为 1
 "set mouse=a		" Enable mouse usage (all modes)
 "set autowrite		" Automatically save before commands like :next and :make
+set wildmode=longest,list " vim :命令的补全在多个匹配项下列出所有，而不是自动选择第一个
 
 
 " == Indent == 
@@ -66,3 +67,9 @@ autocmd VimEnter * :set path=** " set path to current dir when entering vim
 
 
 " 搜索时显示count. 后面使用了vim-searchindex, 因为原生的经常显示[?/??]
+
+" program used when running :grep
+"set grepprg=ag\ --vimgrep
+" ack --column work with grepformat can precisely locate col and row
+set grepprg=ack\ --nogroup\ --column\ $*
+set grepformat=%f:%l:%c:%m
