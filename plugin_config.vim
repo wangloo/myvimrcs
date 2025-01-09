@@ -65,18 +65,41 @@ let g:Lf_DefaultExternalTool='rg'
 let g:Lf_WindowHeight = 0.3
 let g:Lf_WindowPosition = 'bottom'
 
-" Leader 支持 gtags 做definition和reference查找
+" LeaderF gtags - 静态def/ref跳转
 " 需要提前安装gtags
 " let g:Lf_GtagsAutoGenerate = 1  " 打开工程自动生成gtags文件，缓存在用户目录下，
 "                                 " 否则需要 :LeaderF gtags --update 手动生成
-let g:Lf_Gtagslabel = 'native-pygments' " 生成gtags标签的引擎
-" fr => search reference
-" fd => search definition
-" fo => TODO
-" fn => jump to next reference
-" fp => jump to previsor reference
-noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR> 
-noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
-noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
-noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
-noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+let g:Lf_Gtagslabel = 'native-pygments' " 生成gtags标签的引擎, 优先用pygments, 再用原生支持
+
+" 在<当前光标处> 做跳转，要自行输入，只能用:Leaderf! gtags -r/-d
+" fgr => search reference
+" fgd => search definition
+" fgg => grep
+" fgn => jump to next reference
+" fgp => jump to previsor reference
+nmap <unique> <leader>fgd <Plug>LeaderfGtagsDefinition
+nmap <unique> <leader>fgr <Plug>LeaderfGtagsReference
+nmap <unique> <leader>fgs <Plug>LeaderfGtagsSymbol
+nmap <unique> <leader>fgg <Plug>LeaderfGtagsGrep
+
+vmap <unique> <leader>fgd <Plug>LeaderfGtagsDefinition
+vmap <unique> <leader>fgr <Plug>LeaderfGtagsReference
+vmap <unique> <leader>fgs <Plug>LeaderfGtagsSymbol
+vmap <unique> <leader>fgg <Plug>LeaderfGtagsGrep
+
+noremap <leader>fgo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+noremap <leader>fgn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+noremap <leader>fgp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+
+
+" LeaderF rg - 文本搜索
+nmap <unique> <leader>fr <Plug>LeaderfRgPrompt
+nmap <unique> <leader>fra <Plug>LeaderfRgBangCwordLiteralNoBoundary
+nmap <unique> <leader>frb <Plug>LeaderfRgBangCwordLiteralBoundary
+nmap <unique> <leader>frc <Plug>LeaderfRgBangCwordRegexNoBoundary
+nmap <unique> <leader>frd <Plug>LeaderfRgBangCwordRegexBoundary
+
+vmap <unique> <leader>fra <Plug>LeaderfRgBangVisualLiteralNoBoundary
+vmap <unique> <leader>frb <Plug>LeaderfRgBangVisualLiteralBoundary
+vmap <unique> <leader>frc <Plug>LeaderfRgBangVisualRegexNoBoundary
+vmap <unique> <leader>frd <Plug>LeaderfRgBangVisualRegexBoundary
