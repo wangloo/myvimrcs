@@ -5,6 +5,13 @@
 
 let g:coc_config_home = '~/.vim/myvimrcs/'
 
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
 " no select by `"suggest.noselect": true` in your configuration file
@@ -58,3 +65,18 @@ let g:Lf_DefaultExternalTool='rg'
 let g:Lf_WindowHeight = 0.3
 let g:Lf_WindowPosition = 'bottom'
 
+" Leader 支持 gtags 做definition和reference查找
+" 需要提前安装gtags
+" let g:Lf_GtagsAutoGenerate = 1  " 打开工程自动生成gtags文件，缓存在用户目录下，
+"                                 " 否则需要 :LeaderF gtags --update 手动生成
+let g:Lf_Gtagslabel = 'native-pygments' " 生成gtags标签的引擎
+" fr => search reference
+" fd => search definition
+" fo => TODO
+" fn => jump to next reference
+" fp => jump to previsor reference
+noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR> 
+noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
