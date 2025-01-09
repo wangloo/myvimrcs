@@ -1,5 +1,5 @@
 {
-  "clangd.path": "/usr/bin/clangd-15",
+  "clangd.path": "/usr/bin/clangd",
   "suggest.noselect": true,
   "suggest.triggerCompletionWait": 50,
   "inlayHint.enable": true

@@ -18,3 +18,8 @@ function! Substitute( ... )
     endif
     execute printf('%%substitute/%s/%s/g', a:1, a:2)
 endfunction
+
+" wincmd p ==> <C-w> p
+command -nargs=1 -complete=file View  execute 'vsplit' <q-args> | wincmd p
+
+command -nargs=0 Bdothers bufdo if bufname('%') != bufname(expand('#')) | bd | endif

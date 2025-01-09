@@ -22,6 +22,7 @@ setlocal foldlevel=1 " 设置折叠层数为 1
 "set mouse=a		" Enable mouse usage (all modes)
 "set autowrite		" Automatically save before commands like :next and :make
 set wildmode=longest,list " vim :命令的补全在多个匹配项下列出所有，而不是自动选择第一个
+set splitright    " vsp 新打开的显示在右边
 
 
 " == Indent == 
@@ -31,6 +32,7 @@ set expandtab      " Use spaces instead of tabs
 set softtabstop=2 " 使得按退格键时可以一次删掉 2 个空格
 set tabstop=2
 set shiftwidth=2
+set formatoptions-=cro " 上一行是注释，换行不自动添加注释
 
 
 " == StatusLine == 
