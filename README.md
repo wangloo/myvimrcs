@@ -6,6 +6,6 @@ usage:
 ```sh
 cd ~/.vim
 git clone git@github.com:wangloo/myvimrcs.git
-cd ~/myvimrcs
+cd myvimrcs
 bash ./install_vimrc.sh
 ```
